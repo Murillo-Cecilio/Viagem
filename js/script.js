@@ -23,3 +23,4 @@ function criaElemento(nome, quantidade) {
 
     lista.appendChild(novoItem);
 }
+//
