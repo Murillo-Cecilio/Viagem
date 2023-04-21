@@ -7,7 +7,10 @@ form.addEventListener("submit", (evento) => {
     // console.log(evento);
     // console.log(evento.target[0].value);
 
-    criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value)
+    criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value);
+
+    evento.target.elements['nome'].value = "";
+    evento.target.elements['quantidade'].value = "";
 });
 
 function criaElemento(nome, quantidade) {
