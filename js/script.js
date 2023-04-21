@@ -4,13 +4,13 @@ const lista = document.getElementById("lista");
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    // console.log(evento);
-    // console.log(evento.target[0].value);
+    const nome = evento.target.elements['nome'];
+    const quantidade = evento.target.elements['quantidade'];
 
-    criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value);
+    criaElemento(nome.value, quantidade.value);
 
-    evento.target.elements['nome'].value = "";
-    evento.target.elements['quantidade'].value = "";
+    nome.value = "";
+    quantidade.value = "";
 });
 
 function criaElemento(nome, quantidade) {
