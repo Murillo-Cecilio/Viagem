@@ -1,5 +1,6 @@
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
+const itens = [];
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
@@ -26,7 +27,14 @@ function criaElemento(nome, quantidade) {
 
     lista.appendChild(novoItem);
 
-    localStorage.setItem("nome", nome);
-    localStorage.setItem("quantidade", quantidade);
+    const itemAtual = {
+        "nome": nome,
+        "quantidade": quantidade
+    }
+    //push comando para colocar itens dentro do array
+    itens.push(itemAtual);
+
+    //JSON.stringify comando para converter object em string
+    localStorage.setItem("item", JSON.stringify(itens));
 }
 //
