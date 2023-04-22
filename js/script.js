@@ -37,4 +37,3 @@ function criaElemento(nome, quantidade) {
     //JSON.stringify comando para converter object em string
     localStorage.setItem("item", JSON.stringify(itens));
 }
-//
