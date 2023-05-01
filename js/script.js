@@ -1,7 +1,6 @@
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
 const itens = [];
-let viagemParaPraia = 2;
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
