@@ -1,3 +1,5 @@
+// Operador lógico que retorna com dados salvos, ou string vazia,
+// utilizando localStorage.getItem, modificando o valor de `string` com JSON.parse()
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
 const itens = JSON.parse(localStorage.getItem("itens")) || [];
