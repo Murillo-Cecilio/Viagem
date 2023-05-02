@@ -5,7 +5,7 @@ const itens = JSON.parse(localStorage.getItem("itens")) || [];
 console.log(itens);
 console.log([]);
 
-itens.forEach( (elemento) => {
+itens.forEach((elemento) => {
     console.log(elemento.nome, elemento.quantidade);
 })
 
@@ -15,7 +15,17 @@ form.addEventListener("submit", (evento) => {
     const nome = evento.target.elements['nome'];
     const quantidade = evento.target.elements['quantidade'];
 
+    const itemAtual = {
+        "nome": nome.value,
+        "quantidade": quantidade.value
+    }
+
     criaElemento(nome.value, quantidade.value);
+
+    //push comando para colocar itens dentro do array
+    itens.push(itemAtual);
+    //JSON.stringify comando para converter object em string
+    localStorage.setItem("itens", JSON.stringify(itens));
 
     nome.value = "";
     quantidade.value = "";
@@ -33,13 +43,4 @@ function criaElemento(nome, quantidade) {
     novoItem.innerHTML += nome;
 
     lista.appendChild(novoItem);
-
-    const itemAtual = {
-        "nome": nome,
-        "quantidade": quantidade
-    }
-    //push comando para colocar itens dentro do array
-    itens.push(itemAtual);
-    //JSON.stringify comando para converter object em string
-    localStorage.setItem("itens", JSON.stringify(itens));
 }
