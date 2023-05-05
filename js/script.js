@@ -3,7 +3,6 @@
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
 const itens = JSON.parse(localStorage.getItem("itens")) || [];
-let masc = Mochila
 
 itens.forEach((elemento) => {
     criaElemento(elemento);
@@ -26,8 +25,6 @@ form.addEventListener("submit", (evento) => {
         itemAtual.id = existe.id;
 
         atualizaElemento(itemAtual);
-
-        itens[existe.id] = itemAtual
     } else {
         itemAtual.id = itens.length;
 
@@ -36,8 +33,6 @@ form.addEventListener("submit", (evento) => {
 
         //push comando para colocar itens dentro do array
         itens.push(itemAtual);
-
-
     }
 
     //JSON.stringify comando para converter object em string
@@ -64,5 +59,20 @@ function criaElemento(item) {
 };
 
 function atualizaElemento(item) {
-    document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
+    document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade;
+}
+
+function botaoDeleta() {
+    const elementoBotao = document.createElement("button");
+    elementoBotao.innerText = "X";
+
+    elementoBotao.addEventListener("click", function(){
+        deletaElemento(this.parentNode);
+    })
+
+    return elementoBotao;
+}
+
+function deletaElemento(tag) {
+    tag.remove();
 }
